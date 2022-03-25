@@ -60,15 +60,6 @@ tree.heading('#2', text="Descripción", anchor=CENTER)
 tree.column('#3', width=100)
 tree.heading('#3', text="Precio", anchor=CENTER)
 
-def seleccionarUsandoClick(event):
-	item=tree.identify('item',event.x,event.y)
-	miId.set(tree.item(item,"text"))
-	producto.set(tree.item(item,"values")[0])
-	description.set(tree.item(item,"values")[1])
-	price.set(tree.item(item,"values")[2])
-
-tree.bind("<Double-1>", seleccionarUsandoClick)
-
 
 e1=Entry(root, textvariable=miId)
 
@@ -87,8 +78,6 @@ l4.place(x=50,y=70)
 e4=Entry(root, textvariable=price, width=10)
 e4.place(x=120, y=70)
 
-
-################# Creando botones ###########################
 
 b1=Button(root, text="Crear Producto", command=request_post)
 b1.place(x=50, y=100)
