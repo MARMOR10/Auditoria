@@ -10,10 +10,30 @@ root=Tk()
 root.title("PRODUCTOS")
 root.geometry("600x400")
 
-miId=StringVar()
-producto=StringVar()
-description=StringVar()
-price=StringVar()
+
+miId=[]
+producto=[]
+description=[]
+price=[]
+
+
+e1=Entry(root, textvariable=miId)
+
+l2=Label(root, text="Producto")
+l2.place(x=50,y=10)
+e2=Entry(root, textvariable=producto, width=50)
+e2.place(x=120, y=10)
+
+l3=Label(root, text="Descripción")
+l3.place(x=50,y=40)
+e3=Entry(root, textvariable=description)
+e3.place(x=120, y=40)
+
+l4=Label(root, text="Precio")
+l4.place(x=50,y=70)
+e4=Entry(root, textvariable=price, width=10)
+e4.place(x=120, y=70)
+
 
 def request_post():
     url='http://localhost:4000/products'  
@@ -36,7 +56,8 @@ def request_get():
     if response.status_code==200:
         print(response.content)
 
-    print('obtuvodtos')
+    print('obtuvodatos')
+#mostrar datos obtenidos en la interfaz:
 
 def request_delete():
     print('elimino')
@@ -61,25 +82,6 @@ tree.heading('#2', text="Descripción", anchor=CENTER)
 tree.column('#3', width=100)
 tree.heading('#3', text="Precio", anchor=CENTER)
 
-
-e1=Entry(root, textvariable=miId)
-
-l2=Label(root, text="Producto")
-l2.place(x=50,y=10)
-e2=Entry(root, textvariable=producto, width=50)
-e2.place(x=120, y=10)
-
-l3=Label(root, text="Descripción")
-l3.place(x=50,y=40)
-e3=Entry(root, textvariable=description)
-e3.place(x=120, y=40)
-
-l4=Label(root, text="Precio")
-l4.place(x=50,y=70)
-e4=Entry(root, textvariable=price, width=10)
-e4.place(x=120, y=70)
-
-
 b1=Button(root, text="Crear Producto", command=request_post)
 b1.place(x=50, y=100)
 b2=Button(root, text="Modificar Producto", command=request_put)
@@ -89,9 +91,7 @@ b3.place(x=320, y=100)
 b4=Button(root, text="Eliminar Producto", command=request_delete)
 b4.place(x=450, y=100)
 
-
 root.mainloop()
-
 
 
 
