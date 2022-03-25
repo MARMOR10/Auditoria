@@ -23,9 +23,9 @@ def request_post():
 
     if response.status_code==200:
         print(response.content)
-        print('creo')
+        
 def request_put():
-    print('creo')
+    print('actualizo')
 
 
 def request_get():
@@ -36,9 +36,10 @@ def request_get():
     if response.status_code==200:
         print(response.content)
 
+    print('obtuvodtos')
 
 def request_delete():
-    print('creo')
+    print('elimino')
 
 def salirAplicacion():
 	valor=messagebox.askquestion("Salir","¿Está seguro que desea salir de la Aplicación?")
